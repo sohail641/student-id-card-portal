@@ -31,7 +31,7 @@ Professional Design: The ID card is designed to look like a realistic university
 Downloadable PDF: Users can download a high-quality PDF of their ID card for printing or sharing.
 
 Live Demo
-(You will add your live link here in Step 5!)
+https://sohail641.github.io/student-id-card-portal/
 
 How to Use
 Visit the live link.
