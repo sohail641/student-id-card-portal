@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +9,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Segoe+UI&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Segoe+UI&display=swap" rel="stylesheet">
+
+    <!-- This is the new line that connects your CSS file -->
     <link rel="stylesheet" href="style.css">
 
 </head>
-
 <body>
 
     <!-- Auth container -->
@@ -62,16 +60,15 @@
         </div>
         <div class="student_id">
             <label for="s_id">Student ID:</label>
-            <input id="s_id" type="text" name="student_id" placeholder="Enter the ID" required
-                autocomplete="new-password">
+            <input id="s_id" type="text" name="student_id" placeholder="Enter the ID" required autocomplete="new-password">
         </div>
         <div class="email">
             <label for="form_email">Email:</label>
             <input type="email" id="form_email" name="email" placeholder="Enter your email" required readonly>
         </div>
         <div class="address">
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" placeholder="e.g., 123 Anywhere St." required>
+             <label for="address">Address:</label>
+             <input type="text" id="address" name="address" placeholder="e.g., 123 Anywhere St." required>
         </div>
         <div class="phone">
             <label for="phone">Phone:</label>
@@ -89,7 +86,7 @@
             <label for="expiry_date">Expiry Date:</label>
             <input type="date" id="expiry_date" name="expiry_date" required>
         </div>
-        <div class="gender">
+         <div class="gender">
             <label for="gen">Gender:</label>
             <select id="gen" name="gender" required>
                 <option value="" disabled selected>Select gender</option>
@@ -100,14 +97,14 @@
         </div>
         <div class="course">
             <p class="c_title">Course:</p>
-            <input id="btech" type="radio" name="course" value="B.Tech">
+            <input id="btech" type="radio" name="course" value="B.Tech" >
             <label for="btech">B.Tech</label>
-            <input id="MBA" type="radio" name="course" value="MBA">
+            <input id="MBA" type="radio" name="course" value="MBA" >
             <label for="MBA">MBA</label>
-            <input id="BCA" type="radio" name="course" value="BCA">
+            <input id="BCA" type="radio" name="course" value="BCA" >
             <label for="BCA">BCA</label>
         </div>
-        <div class="profile-pic-upload">
+         <div class="profile-pic-upload">
             <label for="profile_pic_input">Profile Picture:</label>
             <input type="file" id="profile_pic_input" name="profile_pic" accept="image/png, image/jpeg">
         </div>
@@ -119,7 +116,7 @@
             <button type="submit" id="submit_student_form">Submit</button>
         </div>
     </form>
-
+    
     <!-- Dashboard - With NEW PROFESSIONAL ID CARD DESIGN -->
     <div id="dashboard_container" style="display:none;">
         <div class="id-card-pro">
@@ -138,7 +135,7 @@
                         <label>ID CARD</label>
                         <span id="db_student_id"></span>
                     </div>
-                    <div class="pro-info-item">
+                     <div class="pro-info-item">
                         <label>D.O.B</label>
                         <span id="db_dob"></span>
                     </div>
@@ -146,11 +143,11 @@
                         <label>ADDRESS</label>
                         <span id="db_address"></span>
                     </div>
-                    <div class="pro-info-item">
+                     <div class="pro-info-item">
                         <label>PHONE</label>
                         <span id="db_phone"></span>
                     </div>
-                    <div class="pro-info-item">
+                     <div class="pro-info-item">
                         <label>COURSE</label>
                         <span id="db_course"></span>
                     </div>
@@ -162,7 +159,7 @@
                     <!-- Social Media Links with comments -->
                     <div class="pro-social-links">
                         <!-- Add your GitHub link here -->
-                        <a href="https://github.com/sohail641" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         <!-- Add your Instagram link here -->
                         <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                         <!-- Add your Facebook link here -->
@@ -188,14 +185,11 @@
 
     <!-- Confirmation Modal -->
     <div id="confirm_modal" style="display:none;">
-        <div
-            style="background-color: #1c2b3a; margin: auto; padding: 30px; border-radius: 12px; text-align: center; color: #fff; width: 90%; max-width: 400px; box-shadow: 0 5px 20px rgba(0,0,0,0.4);">
+        <div style="background-color: #1c2b3a; margin: auto; padding: 30px; border-radius: 12px; text-align: center; color: #fff; width: 90%; max-width: 400px; box-shadow: 0 5px 20px rgba(0,0,0,0.4);">
             <p id="confirm_message" style="margin-bottom: 20px; font-size: 16px; line-height: 1.5;">Are you sure?</p>
             <div style="display: flex; justify-content: center; gap: 15px;">
-                <button id="confirm_yes"
-                    style="background: #e74c3c; color: #fff; padding: 10px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold;">Yes</button>
-                <button id="confirm_no"
-                    style="background: #95a5a6; color: #fff; padding: 10px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold;">Cancel</button>
+                <button id="confirm_yes" style="background: #e74c3c; color: #fff; padding: 10px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold;">Yes</button>
+                <button id="confirm_no" style="background: #95a5a6; color: #fff; padding: 10px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold;">Cancel</button>
             </div>
         </div>
     </div>
@@ -204,7 +198,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
+    
     <script>
         // --- 1. INITIALIZATION ---
         const { createClient } = supabase;
@@ -215,13 +209,13 @@
         const authContainer = document.getElementById('auth_container');
         const studentForm = document.getElementById('student_form');
         const dashboardContainer = document.getElementById('dashboard_container');
-        let currentUserId = null;
+        let currentUserId = null; 
         let currentStudentData = null;
         let isEditMode = false;
-
+        
         // --- 2. UI HELPER FUNCTIONS ---
         function showToast(message, isError = false) {
-            const toast = document.createElement('div');
+             const toast = document.createElement('div');
             toast.textContent = message;
             toast.style.position = 'fixed';
             toast.style.bottom = '-50px';
@@ -245,7 +239,7 @@
                 toast.style.opacity = '0';
                 toast.style.bottom = '-50px';
                 setTimeout(() => {
-                    if (document.body.contains(toast)) {
+                    if(document.body.contains(toast)) {
                         document.body.removeChild(toast);
                     }
                 }, 300);
@@ -256,7 +250,7 @@
             const modal = document.getElementById('confirm_modal');
             modal.style.display = 'flex';
             document.getElementById('confirm_message').innerText = message;
-
+            
             const yesBtn = document.getElementById('confirm_yes');
             const noBtn = document.getElementById('confirm_no');
 
@@ -278,12 +272,12 @@
         // --- 3. AUTH UI TOGGLE ---
         const registerBtn = document.getElementById('register');
         const loginBtn = document.getElementById('login');
-        if (registerBtn) registerBtn.addEventListener('click', () => authContainer.classList.add("active"));
-        if (loginBtn) loginBtn.addEventListener('click', () => authContainer.classList.remove("active"));
+        if(registerBtn) registerBtn.addEventListener('click', () => authContainer.classList.add("active"));
+        if(loginBtn) loginBtn.addEventListener('click', () => authContainer.classList.remove("active"));
 
         // --- 4. HELPER FUNCTION TO DISPLAY DASHBOARD ---
         function displayDashboard(studentData) {
-            currentStudentData = studentData;
+            currentStudentData = studentData; 
             document.getElementById('db_name').innerText = studentData.name.toUpperCase();
             document.getElementById('db_student_id').innerText = `: ${studentData.student_id}`;
             document.getElementById('db_dob').innerText = `: ${new Date(studentData.dob).toLocaleDateString('en-GB')}`;
@@ -291,7 +285,7 @@
             document.getElementById('db_phone').innerText = `: ${studentData.phone}`;
             document.getElementById('db_email').innerText = studentData.email;
             document.getElementById('db_course').innerText = `: ${studentData.course}`;
-
+            
             const profilePicImg = document.getElementById('db_profile_pic');
             if (studentData.profile_image_url) {
                 profilePicImg.src = `${studentData.profile_image_url}?t=${new Date().getTime()}`;
@@ -304,11 +298,11 @@
 
         // --- 5. LOGIN/SIGNUP LOGIC ---
         const signupForm = document.getElementById("signup-form");
-        if (signupForm) signupForm.addEventListener("submit", async (e) => {
+        if(signupForm) signupForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             const email = document.getElementById("signup-email").value;
             const password = document.getElementById("signup-password").value;
-
+            
             const { error } = await _supabase.auth.signUp({ email, password });
             if (error) {
                 showToast("❌ " + error.message, true);
@@ -319,20 +313,20 @@
         });
 
         const loginForm = document.getElementById("login-form");
-        if (loginForm) loginForm.addEventListener("submit", async (e) => {
+        if(loginForm) loginForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             const email = document.getElementById("login-email").value;
             const password = document.getElementById("login-password").value;
-
+            
             const { data, error } = await _supabase.auth.signInWithPassword({ email, password });
             if (error) {
                 showToast("❌ " + error.message, true);
             } else {
                 showToast("✅ Login successful!");
                 const user = data.user;
-                if (user) {
+                if(user) {
                     currentUserId = user.id;
-
+                    
                     const { data: studentData, error: fetchError } = await _supabase
                         .from('students')
                         .select('*')
@@ -340,8 +334,8 @@
                         .single();
 
                     if (fetchError && fetchError.code !== 'PGRST116') {
-                        showToast('❌ Error fetching student data: ' + fetchError.message, true);
-                        return;
+                         showToast('❌ Error fetching student data: ' + fetchError.message, true);
+                         return;
                     }
 
                     if (studentData) {
@@ -365,7 +359,7 @@
             e.preventDefault();
             const form = e.target;
             const submitButton = form.querySelector('button[type="submit"]');
-
+            
             if (!currentUserId) {
                 showToast("You must be logged in.", true);
                 return;
@@ -416,7 +410,7 @@
                 const { error } = await _supabase.from("students").insert([formData]);
                 operationError = error;
             }
-
+            
             if (operationError) {
                 showToast("Error saving data: " + operationError.message, true);
             } else {
@@ -432,7 +426,7 @@
             submitButton.innerText = 'Submit';
             form.reset();
         });
-
+        
         // --- 7. DASHBOARD ACTIONS ---
         document.getElementById('edit_btn').addEventListener('click', () => {
             if (!currentStudentData) return;
@@ -456,7 +450,7 @@
 
             studentForm.querySelector('.form_title').innerText = 'Edit Your Profile';
             studentForm.querySelector('button[type="submit"]').innerText = 'Update Profile';
-
+            
             dashboardContainer.style.display = 'none';
             studentForm.style.display = 'block';
         });
@@ -464,7 +458,7 @@
         document.getElementById('download_btn').addEventListener('click', () => {
             showToast('Generating PDF...');
             const card = document.querySelector(".id-card-pro");
-
+            
             html2canvas(card, { scale: 3, useCORS: true, allowTaint: true }).then(canvas => {
                 const imgData = canvas.toDataURL('image/jpeg', 0.9);
                 const { jsPDF } = window.jspdf;
@@ -489,13 +483,13 @@
                     showToast('Error deleting profile: ' + deleteError.message, true);
                     return;
                 }
-
+                
                 showToast('Account has been deleted.');
                 await _supabase.auth.signOut();
                 setTimeout(() => window.location.reload(), 1500);
             });
         });
-
+        
         document.getElementById('logout_btn').addEventListener('click', async () => {
             const { error } = await _supabase.auth.signOut();
             if (error) {
@@ -507,5 +501,5 @@
 
     </script>
 </body>
-
 </html>
+
