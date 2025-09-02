@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Portal</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Segoe+UI&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Auth container -->
+    <div class="container" id="auth_container">
+        <div class="form-container sign-up">
+            <form id="signup-form">
+                <h1>Create Account</h1>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="login-form">
+                <h1>Sign In</h1>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to get started</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Form -->
+    <form action="" id="student_form" style="display:none;">
+        <h1 class="form_title">Student Registration</h1>
+        <div class="name">
+            <label for="name">Name:</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" required>
+        </div>
+        <div class="student_id">
+            <label for="s_id">Student ID:</label>
+            <input id="s_id" type="text" name="student_id" placeholder="Enter the ID" required
+                autocomplete="new-password">
+        </div>
+        <div class="email">
+            <label for="form_email">Email:</label>
+            <input type="email" id="form_email" name="email" placeholder="Enter your email" required readonly>
+        </div>
+        <div class="address">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="e.g., 123 Anywhere St." required>
+        </div>
+        <div class="phone">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="dob">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="department">
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" placeholder="e.g., Computer Science" required>
+        </div>
+        <div class="expiry_date">
+            <label for="expiry_date">Expiry Date:</label>
+            <input type="date" id="expiry_date" name="expiry_date" required>
+        </div>
+        <div class="gender">
+            <label for="gen">Gender:</label>
+            <select id="gen" name="gender" required>
+                <option value="" disabled selected>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="course">
+            <p class="c_title">Course:</p>
+            <input id="btech" type="radio" name="course" value="B.Tech">
+            <label for="btech">B.Tech</label>
+            <input id="MBA" type="radio" name="course" value="MBA">
+            <label for="MBA">MBA</label>
+            <input id="BCA" type="radio" name="course" value="BCA">
+            <label for="BCA">BCA</label>
+        </div>
+        <div class="profile-pic-upload">
+            <label for="profile_pic_input">Profile Picture:</label>
+            <input type="file" id="profile_pic_input" name="profile_pic" accept="image/png, image/jpeg">
+        </div>
+        <div class="chack">
+            <input type="checkbox" id="check_b" required>
+            <label for="check_b">I agree to all the terms and conditions</label>
+        </div>
+        <div class="submit">
+            <button type="submit" id="submit_student_form">Submit</button>
+        </div>
+    </form>
+
+    <!-- Dashboard - With NEW PROFESSIONAL ID CARD DESIGN -->
+    <div id="dashboard_container" style="display:none;">
+        <div class="id-card-pro">
+            <div class="bg-shape shape1"></div>
+            <div class="bg-shape shape2"></div>
+            <div class="bg-shape shape3"></div>
+            <div class="bg-shape shape4"></div>
+
+            <div class="id-card-pro-header">
+                <span>UNIVERSITY OF MS</span>
+            </div>
+            <div class="id-card-pro-body">
+                <div class="id-card-pro-details">
+                    <div class="pro-name" id="db_name"></div>
+                    <div class="pro-info-item">
+                        <label>ID CARD</label>
+                        <span id="db_student_id"></span>
+                    </div>
+                    <div class="pro-info-item">
+                        <label>D.O.B</label>
+                        <span id="db_dob"></span>
+                    </div>
+                    <div class="pro-info-item">
+                        <label>ADDRESS</label>
+                        <span id="db_address"></span>
+                    </div>
+                    <div class="pro-info-item">
+                        <label>PHONE</label>
+                        <span id="db_phone"></span>
+                    </div>
+                    <div class="pro-info-item">
+                        <label>COURSE</label>
+                        <span id="db_course"></span>
+                    </div>
+                </div>
+                <div class="id-card-pro-photo-section">
+                    <div class="pro-photo">
+                        <img id="db_profile_pic" src="" alt="Profile Picture">
+                    </div>
+                    <!-- Social Media Links with comments -->
+                    <div class="pro-social-links">
+                        <!-- Add your GitHub link here -->
+                        <a href="https://github.com/sohail641" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <!-- Add your Instagram link here -->
+                        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <!-- Add your Facebook link here -->
+                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <!-- Add your Twitter link here -->
+                        <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="id-card-pro-footer">
+                <div class="pro-barcode"></div>
+                <div class="pro-email" id="db_email"></div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="download_btn"><i class="fas fa-download"></i> Download</button>
+            <button id="edit_btn"><i class="fas fa-edit"></i> Edit</button>
+            <button id="delete_btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+        <button id="logout_btn">Logout</button>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm_modal" style="display:none;">
+        <div
+            style="background-color: #1c2b3a; margin: auto; padding: 30px; border-radius: 12px; text-align: center; color: #fff; width: 90%; max-width: 400px; box-shadow: 0 5px 20px rgba(0,0,0,0.4);">
+            <p id="confirm_message" style="margin-bottom: 20px; font-size: 16px; line-height: 1.5;">Are you sure?</p>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <button id="confirm_yes"
+                    style="background: #e74c3c; color: #fff; padding: 10px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold;">Yes</button>
+                <button id="confirm_no"
+                    style="background: #95a5a6; color: #fff; padding: 10px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // --- 1. INITIALIZATION ---
+        const { createClient } = supabase;
+        const supabaseUrl = "https://uyywgpxuslimldaecfgq.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5eXdncHh1c2xpbWxkYWVjZmdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NTA4OTAsImV4cCI6MjA3MjIyNjg5MH0.miLT4XTBY0dVW9dZ4UPG5EAoZvlVXmmgBe3q-C7PnoY";
+        const _supabase = createClient(supabaseUrl, supabaseKey);
+
+        const authContainer = document.getElementById('auth_container');
+        const studentForm = document.getElementById('student_form');
+        const dashboardContainer = document.getElementById('dashboard_container');
+        let currentUserId = null;
+        let currentStudentData = null;
+        let isEditMode = false;
+
+        // --- 2. UI HELPER FUNCTIONS ---
+        function showToast(message, isError = false) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.position = 'fixed';
+            toast.style.bottom = '-50px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.padding = '12px 25px';
+            toast.style.borderRadius = '8px';
+            toast.style.color = '#fff';
+            toast.style.background = isError ? '#e74c3c' : '#1abc9c';
+            toast.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            toast.style.zIndex = '1002';
+            toast.style.transition = 'opacity 0.3s ease, bottom 0.3s ease';
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '1';
+                toast.style.bottom = '20px';
+            }, 10);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.bottom = '-50px';
+                setTimeout(() => {
+                    if (document.body.contains(toast)) {
+                        document.body.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        function showConfirmation(message, onConfirm) {
+            const modal = document.getElementById('confirm_modal');
+            modal.style.display = 'flex';
+            document.getElementById('confirm_message').innerText = message;
+
+            const yesBtn = document.getElementById('confirm_yes');
+            const noBtn = document.getElementById('confirm_no');
+
+            const handleYes = () => {
+                onConfirm();
+                cleanup();
+            };
+
+            const cleanup = () => {
+                modal.style.display = 'none';
+                yesBtn.removeEventListener('click', handleYes);
+                noBtn.removeEventListener('click', cleanup);
+            };
+
+            yesBtn.addEventListener('click', handleYes);
+            noBtn.addEventListener('click', cleanup);
+        }
+
+        // --- 3. AUTH UI TOGGLE ---
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+        if (registerBtn) registerBtn.addEventListener('click', () => authContainer.classList.add("active"));
+        if (loginBtn) loginBtn.addEventListener('click', () => authContainer.classList.remove("active"));
+
+        // --- 4. HELPER FUNCTION TO DISPLAY DASHBOARD ---
+        function displayDashboard(studentData) {
+            currentStudentData = studentData;
+            document.getElementById('db_name').innerText = studentData.name.toUpperCase();
+            document.getElementById('db_student_id').innerText = `: ${studentData.student_id}`;
+            document.getElementById('db_dob').innerText = `: ${new Date(studentData.dob).toLocaleDateString('en-GB')}`;
+            document.getElementById('db_address').innerText = `: ${studentData.address}`;
+            document.getElementById('db_phone').innerText = `: ${studentData.phone}`;
+            document.getElementById('db_email').innerText = studentData.email;
+            document.getElementById('db_course').innerText = `: ${studentData.course}`;
+
+            const profilePicImg = document.getElementById('db_profile_pic');
+            if (studentData.profile_image_url) {
+                profilePicImg.src = `${studentData.profile_image_url}?t=${new Date().getTime()}`;
+            }
+
+            authContainer.style.display = "none";
+            studentForm.style.display = "none";
+            dashboardContainer.style.display = "block";
+        }
+
+        // --- 5. LOGIN/SIGNUP LOGIC ---
+        const signupForm = document.getElementById("signup-form");
+        if (signupForm) signupForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+
+            const { error } = await _supabase.auth.signUp({ email, password });
+            if (error) {
+                showToast("❌ " + error.message, true);
+            } else {
+                showToast("✅ Signup successful! Please check your email to verify.");
+                authContainer.classList.remove("active");
+            }
+        });
+
+        const loginForm = document.getElementById("login-form");
+        if (loginForm) loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+
+            const { data, error } = await _supabase.auth.signInWithPassword({ email, password });
+            if (error) {
+                showToast("❌ " + error.message, true);
+            } else {
+                showToast("✅ Login successful!");
+                const user = data.user;
+                if (user) {
+                    currentUserId = user.id;
+
+                    const { data: studentData, error: fetchError } = await _supabase
+                        .from('students')
+                        .select('*')
+                        .eq('user_id', user.id)
+                        .single();
+
+                    if (fetchError && fetchError.code !== 'PGRST116') {
+                        showToast('❌ Error fetching student data: ' + fetchError.message, true);
+                        return;
+                    }
+
+                    if (studentData) {
+                        displayDashboard(studentData);
+                    } else {
+                        isEditMode = false;
+                        studentForm.reset();
+                        studentForm.querySelector('.form_title').innerText = 'Student Registration';
+                        studentForm.querySelector('button[type="submit"]').innerText = 'Submit';
+                        document.getElementById('s_id').readOnly = false;
+                        document.getElementById('form_email').value = user.email;
+                        authContainer.style.display = "none";
+                        studentForm.style.display = "block";
+                    }
+                }
+            }
+        });
+
+        // --- 6. STUDENT FORM SUBMISSION (CREATE & UPDATE) ---
+        studentForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            if (!currentUserId) {
+                showToast("You must be logged in.", true);
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.innerText = 'Saving...';
+
+            const profilePicFile = form.profile_pic.files[0];
+            let profileImageUrl = currentStudentData?.profile_image_url || null;
+
+            if (profilePicFile) {
+                const filePath = `${currentUserId}/profile_picture`;
+                const { error: uploadError } = await _supabase.storage
+                    .from('profile-pictures')
+                    .upload(filePath, profilePicFile, { upsert: true });
+
+                if (uploadError) {
+                    showToast('Error uploading image: ' + uploadError.message, true);
+                    submitButton.disabled = false;
+                    submitButton.innerText = isEditMode ? 'Update Profile' : 'Submit';
+                    return;
+                }
+                profileImageUrl = _supabase.storage.from('profile-pictures').getPublicUrl(filePath).data.publicUrl;
+            }
+
+            const formData = {
+                name: form.name.value,
+                phone: form.phone.value,
+                dob: form.dob.value,
+                address: form.address.value,
+                profile_image_url: profileImageUrl,
+                terms: form.check_b.checked,
+                department: form.department.value,
+                expiry_date: form.expiry_date.value,
+                gender: form.gender.value,
+                course: form.querySelector('input[name="course"]:checked')?.value,
+            };
+
+            let operationError;
+            if (isEditMode) {
+                const { error } = await _supabase.from("students").update(formData).eq('user_id', currentUserId);
+                operationError = error;
+            } else {
+                formData.user_id = currentUserId;
+                formData.email = form.email.value;
+                formData.student_id = form.student_id.value;
+                const { error } = await _supabase.from("students").insert([formData]);
+                operationError = error;
+            }
+
+            if (operationError) {
+                showToast("Error saving data: " + operationError.message, true);
+            } else {
+                const { data: refreshedData, error: fetchError } = await _supabase.from('students').select('*').eq('user_id', currentUserId).single();
+                if (fetchError) {
+                    showToast("Error refreshing data: " + fetchError.message, true);
+                } else {
+                    showToast(isEditMode ? "Profile updated!" : "Data saved!");
+                    displayDashboard(refreshedData);
+                }
+            }
+            submitButton.disabled = false;
+            submitButton.innerText = 'Submit';
+            form.reset();
+        });
+
+        // --- 7. DASHBOARD ACTIONS ---
+        document.getElementById('edit_btn').addEventListener('click', () => {
+            if (!currentStudentData) return;
+            isEditMode = true;
+
+            studentForm.name.value = currentStudentData.name;
+            studentForm.s_id.value = currentStudentData.student_id;
+            studentForm.s_id.readOnly = true;
+            studentForm.form_email.value = currentStudentData.email;
+            studentForm.address.value = currentStudentData.address;
+            studentForm.phone.value = currentStudentData.phone;
+            studentForm.dob.value = currentStudentData.dob;
+            studentForm.check_b.checked = currentStudentData.terms;
+
+            studentForm.department.value = currentStudentData.department;
+            studentForm.expiry_date.value = currentStudentData.expiry_date;
+            studentForm.gen.value = currentStudentData.gender;
+            const courseRadio = studentForm.querySelector(`input[name="course"][value="${currentStudentData.course}"]`);
+            if (courseRadio) courseRadio.checked = true;
+
+
+            studentForm.querySelector('.form_title').innerText = 'Edit Your Profile';
+            studentForm.querySelector('button[type="submit"]').innerText = 'Update Profile';
+
+            dashboardContainer.style.display = 'none';
+            studentForm.style.display = 'block';
+        });
+
+        document.getElementById('download_btn').addEventListener('click', () => {
+            showToast('Generating PDF...');
+            const card = document.querySelector(".id-card-pro");
+
+            html2canvas(card, { scale: 3, useCORS: true, allowTaint: true }).then(canvas => {
+                const imgData = canvas.toDataURL('image/jpeg', 0.9);
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [100, 60] });
+                pdf.addImage(imgData, 'JPEG', 0, 0, 100, 60);
+                pdf.save(`${currentStudentData.student_id}_ID_Card.pdf`);
+            });
+        });
+
+        document.getElementById('delete_btn').addEventListener('click', () => {
+            if (!currentStudentData) return;
+
+            showConfirmation("Are you sure you want to delete this account? This is permanent.", async () => {
+                const filePath = `${currentUserId}/profile_picture`;
+                if (currentStudentData.profile_image_url) {
+                    await _supabase.storage.from('profile-pictures').remove([filePath]);
+                }
+
+                const { error: deleteError } = await _supabase.from('students').delete().eq('user_id', currentUserId);
+
+                if (deleteError) {
+                    showToast('Error deleting profile: ' + deleteError.message, true);
+                    return;
+                }
+
+                showToast('Account has been deleted.');
+                await _supabase.auth.signOut();
+                setTimeout(() => window.location.reload(), 1500);
+            });
+        });
+
+        document.getElementById('logout_btn').addEventListener('click', async () => {
+            const { error } = await _supabase.auth.signOut();
+            if (error) {
+                showToast('Error logging out: ' + error.message, true);
+            } else {
+                window.location.reload();
+            }
+        });
+
+    </script>
+</body>
+
+</html>

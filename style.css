@@ -1,0 +1,573 @@
+        /* --- General Body and Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1c92d2, #f2fcfe);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- LOGIN/SIGNUP CONTAINER STYLES --- */
+        .container {
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 768px;
+            max-width: 100%;
+            min-height: 480px;
+            animation: float 6s ease-in-out infinite, fadeIn 1s ease-out;
+        }
+
+        .container p {
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            margin: 20px 0 30px;
+        }
+
+        .container form {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            height: 100%;
+        }
+
+        .container input {
+            background: #eee;
+            border: none;
+            margin: 8px 0;
+            padding: 10px 15px;
+            font-size: 13px;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+        }
+
+        .container button {
+            background: #11a66a;
+            color: #fff;
+            font-size: 12px;
+            padding: 10px 45px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .container button.hidden {
+            background: transparent;
+            border-color: #fff;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .sign-in {
+            left: 0;
+            width: 50%;
+            z-index: 2;
+        }
+
+        .container.active .sign-in {
+            transform: translateX(100%);
+        }
+
+        .sign-up {
+            left: 0;
+            width: 50%;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .container.active .sign-up {
+            transform: translateX(100%);
+            opacity: 1;
+            z-index: 5;
+            animation: move 0.6s;
+        }
+
+        @keyframes move {
+
+            0%,
+            49.99% {
+                opacity: 0;
+                z-index: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 1;
+                z-index: 5;
+            }
+        }
+
+        .toggle-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.6s ease-in-out;
+            border-radius: 150px 0 0 100px;
+            z-index: 1000;
+        }
+
+        .container.active .toggle-container {
+            transform: translateX(-100%);
+            border-radius: 0 150px 100px 0;
+        }
+
+        .toggle {
+            background: linear-gradient(to right, #74b2a6, #188769);
+            color: #fff;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .container.active .toggle {
+            transform: translateX(50%);
+        }
+
+        .toggle-panel {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 30px;
+            text-align: center;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .toggle-left {
+            transform: translateX(-200%);
+        }
+
+        .container.active .toggle-left {
+            transform: translateX(0);
+        }
+
+        .toggle-right {
+            right: 0;
+            transform: translateX(0);
+        }
+
+        .container.active .toggle-right {
+            transform: translateX(200%);
+        }
+
+        /* --- STUDENT REGISTRATION FORM STYLES --- */
+        #student_form {
+            background: #1c2b3a;
+            padding: 30px;
+            border-radius: 12px;
+            width: 380px;
+            color: #fff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite, fadeIn 1s ease-out;
+        }
+
+        #student_form .form_title {
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: #1abc9c;
+            margin-bottom: 20px;
+            animation: pop 0.8s ease-in-out;
+        }
+
+        #student_form label {
+            font-family: 'Segoe UI', sans-serif;
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #student_form input,
+        #student_form select,
+        #student_form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #fff;
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #student_form input:read-only {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+            color: #6c757d;
+        }
+
+        #student_form input[type="file"] {
+            background: #2a3f54;
+            color: #ccc;
+            padding: 10px;
+        }
+
+        #student_form input[type="file"]::file-selector-button {
+            margin-right: 10px;
+            border: none;
+            background: #1abc9c;
+            padding: 8px 12px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+        }
+
+        #student_form input[type="file"]::file-selector-button:hover {
+            background: #16a085;
+        }
+
+
+        #student_form input:focus {
+            box-shadow: 0 0 10px rgba(26, 188, 156, 0.6);
+        }
+
+        #student_form .course input,
+        #student_form .chack input {
+            width: auto;
+            margin-right: 6px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #student_form .course p.c_title {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        #student_form .course label,
+        #student_form .chack label {
+            color: #ccc;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        #student_form textarea {
+            resize: none;
+        }
+
+        #student_form button {
+            width: 100%;
+            background: #1abc9c;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: none;
+            margin-top: 10px;
+        }
+
+        #student_form button:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+
+        #student_form button:hover:not(:disabled) {
+            background: #16a085;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4);
+        }
+
+        /* --- NEW PROFESSIONAL ID CARD STYLES --- */
+        #dashboard_container {
+            width: 600px;
+            max-width: 95%;
+            animation: float 6s ease-in-out infinite, fadeIn 1s ease-out;
+        }
+
+        .id-card-pro {
+            background-color: #1a2a40;
+            color: #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .id-card-pro .bg-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        .shape1 {
+            top: -40px;
+            left: -60px;
+            width: 150px;
+            height: 150px;
+            border-radius: 45%;
+            transform: rotate(45deg);
+        }
+
+        .shape2 {
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .shape3 {
+            bottom: 120px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .shape4 {
+            top: 50px;
+            right: 20px;
+            width: 80px;
+            height: 30px;
+            border-radius: 20px;
+            transform: rotate(-30deg);
+        }
+
+
+        .id-card-pro-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .id-card-pro-header span {
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .id-card-pro-body {
+            display: flex;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .id-card-pro-details {
+            flex-grow: 1;
+        }
+
+        .pro-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .pro-info-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .pro-info-item label {
+            font-weight: 500;
+            color: #a0a0a0;
+        }
+
+        .id-card-pro-photo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pro-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .pro-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pro-social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .pro-social-links a {
+            color: #a0a0a0;
+            font-size: 20px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+
+        .pro-social-links a:hover {
+            color: #1abc9c;
+            transform: scale(1.2);
+        }
+
+
+        .id-card-pro-footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pro-barcode {
+            width: 150px;
+            height: 40px;
+            background-image: repeating-linear-gradient(to right,
+                    #fff 0, #fff 1px, transparent 1px, transparent 3px,
+                    #fff 3px, #fff 5px, transparent 5px, transparent 6px);
+        }
+
+        .pro-email {
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .action-buttons button,
+        #logout_btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: none;
+        }
+
+        #download_btn {
+            background: #1abc9c;
+            color: #fff;
+        }
+
+        #download_btn:hover {
+            background: #16a085;
+        }
+
+        #edit_btn {
+            background: #3498db;
+            color: #fff;
+        }
+
+        #edit_btn:hover {
+            background: #2980b9;
+        }
+
+        #delete_btn {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        #delete_btn:hover {
+            background: #c0392b;
+        }
+
+        #logout_btn {
+            background: #95a5a6;
+            color: #fff;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        #logout_btn:hover {
+            background: #7f8c8d;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
