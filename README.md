@@ -1,14 +1,18 @@
 # student-id-card-portal
 
-                                                                  login/sign in
+<img width="1920" height="1080" alt="Untitled design" src="https://github.com/user-attachments/assets/43e3568e-8f7f-45db-bd9b-464c05c3d8e8" />
+
+
+
+                                              login/sign in
 
 <img width="1332" height="783" alt="Screenshot2" src="https://github.com/user-attachments/assets/67b6493f-a49d-4862-b5ef-7964f369793b" />
 
-                                                                   STUDENT REGISTRATION FORM 
+                                              STUDENT REGISTRATION FORM 
  
 <img width="460" height="914" alt="Screenshot1" src="https://github.com/user-attachments/assets/9b4e7c03-75ec-4d98-a875-a41559c06b74" />
 
-                                                                  STUDENT ID
+                                              STUDENT ID
 <img width="988" height="769" alt="screenshot3" src="https://github.com/user-attachments/assets/83ec5c4f-093b-4cac-9c78-503909b590da" />
 
 
